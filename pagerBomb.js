@@ -26,8 +26,10 @@ function bombPagers(choice) {
 
         // print pagers 1-16 bombing them 1 time
         for (let i = 1; i <= 16; i++) {
-            print("Sending P"+i+".sub")
-            subghz.transmitFile("/ext/subghz/P"+i+".sub");      
+            print("Sending P"+ to_string(i) + ".sub");
+            let transFile = "/ext/subghz/P" + to_string(i) + ".sub";
+            
+            subghz.transmitFile(transFile);      
         }
 
         print("Send success");
@@ -39,10 +41,18 @@ function bombPagers(choice) {
         // 1/2 sec delay
         delay(500);
 
+        let j = 1;
         // print pagers 1-16 infinitly bombing them
         while (1) {
-            print("Sending P"+i+".sub")
-            subghz.transmitFile("/ext/subghz/P"+i+".sub");      
+            print("Sending P" + to_string(j) +".sub");
+
+            let transFile = "/ext/subghz/P" + to_string(j) + ".sub";
+            subghz.transmitFile(transFile);     
+            j++; 
+            if (j > 16)
+            {
+                j = 1;
+            }
         }
 
         print("Send success");
