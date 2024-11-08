@@ -13,6 +13,7 @@ subghz.setIdle();
 // change frequency to correct range of pagers
 changeFrequency(433920000);
 
+// create a sub menu to give user a choice on the type of attack
 let submenu = require("submenu");
 submenu.addItem("Bomb once", 0);
 submenu.addItem("Bomb infinitly", 1);
